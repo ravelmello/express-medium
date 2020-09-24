@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-const saltRounds = 20;
+const saltRounds = 10;
 
 function encrypt(password) {
     return bcrypt.hashSync(password,saltRounds);
