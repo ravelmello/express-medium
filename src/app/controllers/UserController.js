@@ -7,7 +7,6 @@ module.exports = {
         const {ds_name, ds_email, ds_login, ds_password} = request.body
         const passCrypted = encrypt(ds_password)
 
-        console.log(request.body);
 
         const user = await conn('user')
         .insert({
@@ -17,7 +16,7 @@ module.exports = {
             ds_password: passCrypted
         })
 
-        console.log(user)
+        
 
         return response.status(201).send({
             mensagem: {
@@ -25,7 +24,6 @@ module.exports = {
                     "Name": ds_name,
                     "email": ds_email,
                     "login": ds_login,
-                    "ds_password": passCrypted
                 }
             }
         })
